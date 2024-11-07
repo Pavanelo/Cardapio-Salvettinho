@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #8FBB99;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #8FBB99;
+            display: flex;
+            justify-content: center; /* Centraliza os links de navegação */
+            align-items: center;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .navbar .logo {
+            position: absolute;
+            left: 40px; /* Logo à esquerda */
+        }
+
+        .navbar .logo img {
+            height: 40px; /* Ajuste no tamanho do logo */
+            width: auto;
+        }
+
+        .navbar-links {
+            display: flex;
+            justify-content: center; /* Centraliza os links dentro do contêiner */
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #9bc4a5;
+            transform: translateY(-5px); /* Efeito de leve elevação */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: black;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Seleção de dia */
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            background-color: #f7f7f7;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        select:hover {
+            background-color: white;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: block;
+            color: #333;
+        }
+
+        .meal-section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.1em;
+            color: #555;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        li:hover {
+            background-color: #d3d3d3;
+            transform: translateX(5px);
+        }
+
+        /* Tooltip - Melhorado */
+        .tooltip {
+            visibility: hidden;
+            width: 220px;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro e translúcido */
+            color: #fff;
+            text-align: center;
+            border-radius: 8px; /* Borda arredondada */
+            padding: 12px 15px;
+            position: absolute;
+            z-index: 1;
+            bottom: 130%; /* Coloca o tooltip acima do item */
+            left: 50%;
+            margin-left: -110px; /* Ajusta para centralizar */
+            opacity: 0;
+            transition: opacity 0.3s ease, bottom 0.3s ease; /* Efeito suave */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+            font-size: 0.9em; /* Tamanho de fonte ajustado */
+        }
+
+        li:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            bottom: 135%; /* Levemente acima do item */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+
+            .navbar .logo {
+                position: relative;
+                margin-bottom: 15px;
+            }
+
+            .navbar-links {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                align-items: flex-start;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            select {
+                width: 100%;
+            }
+
+            /* Ajuste no layout das refeições */
+            .meal-section {
+                padding: 15px;
+            }
+
+            li {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+
+            .meal-section {
+                margin: 10px 0;
+                padding: 10px;
+            }
+
+            li {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+
+            select {
+                font-size: 1em;
+            }
+        }
+
+    </style>
+    <script>
+        const menu = {
+            segunda: {
+                breakfast: [
+                    { item: 'Pão com manteiga', nutrition: '250 kcal, 10g de proteína, 12g de gordura' },
+                    { item: 'Leite com Chocolate', nutrition: '150 kcal, 8g de proteína, 6g de gordura' }
+                ],
+                lunch: [
+                    { item: 'Arroz e feijão', nutrition: '300 kcal, 12g de proteína, 5g de gordura' },
+                    { item: 'Ovo', nutrition: '75 kcal, 6g de proteína, 5g de gordura' },
+                    { item: 'Salada de Cenoura', nutrition: '50 kcal, 1g de proteína, 0g de gordura' }
+                ],
+                afternoonTea: [
+                    { item: 'Bolinho de Chocolate Integral', nutrition: '200 kcal, 3g de proteína, 9g de gordura' },
+                    { item: 'Vitamina de Banana', nutrition: '120 kcal, 2g de proteína, 2g de gordura' }
+                ]
+            },
+            terca: {
+                breakfast: [
+                    { item: 'Pão com requeijão', nutrition: '270 kcal, 8g de proteína, 12g de gordura' },
+                    { item: 'Leite com Chocolate', nutrition: '150 kcal, 8g de proteína, 6g de gordura' }
+                ],
+                lunch: [
+                    { item: 'Arroz', nutrition: '200 kcal, 4g de proteína, 0g de gordura' },
+                    { item: 'Almondegas', nutrition: '320 kcal, 18g de proteína, 20g de gordura' },
+                    { item: 'Legumes salteados', nutrition: '150 kcal, 5g de proteína, 10g de gordura' }
+                ],
+                afternoonTea: [
+                    { item: 'Bolinho de Chocolate Integral', nutrition: '200 kcal, 3g de proteína, 9g de gordura' },
+                    { item: 'Suco de limão', nutrition: '50 kcal, 0g de proteína, 0g de gordura' },
+                    { item: 'Biscoitos', nutrition: '180 kcal, 2g de proteína, 8g de gordura' }
+                ]
+            }
+        };
+
+        function updateMenu(day) {
+            document.getElementById('breakfast').innerHTML = menu[day].breakfast.map(item => `
+                <li>${item.item}<span class="tooltip">${item.nutrition}</span></li>
+            `).join('');
+            document.getElementById('lunch').innerHTML = menu[day].lunch.map(item => `
+                <li>${item.item}<span class="tooltip">${item.nutrition}</span></li>
+            `).join('');
+            document.getElementById('afternoon-tea').innerHTML = menu[day].afternoonTea.map(item => `
+                <li>${item.item}<span class="tooltip">${item.nutrition}</span></li>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const daySelect = document.getElementById('day-select');
+            daySelect.addEventListener('change', (event) => {
+                updateMenu(event.target.value);
+            });
+            updateMenu(daySelect.value); // Load the initial day's menu
+        });
+    </script>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo" />
+        </div>
+        <div class="navbar-links">
+            <a href="TelaInicial.html">Inicial</a>
+            <a href="Cardapio.html">Cardápio</a>
+            <a href="Diquinhas.html">Diquinhas</a>
+            <a href="SobreNos.html">Sobre Nós</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Cardápio Semanal</h1>
+        <label for="day-select">Selecione um dia:</label>
+        <select id="day-select">
+            <option value="segunda">Segunda-feira</option>
+            <option value="terca">Terça-feira</option>
+            <option value="quarta">Quarta-feira</option>
+            <option value="quinta">Quinta-feira</option>
+            <option value="sexta">Sexta-feira</option>
+        </select>
+
+        <div class="meal-section">
+            <h2>Café da Manhã</h2>
+            <ul id="breakfast"></ul>
+        </div>
+        <div class="meal-section">
+            <h2>Almoço</h2>
+            <ul id="lunch"></ul>
+        </div>
+        <div class="meal-section">
+            <h2>Café da Tarde</h2>
+            <ul id="afternoon-tea"></ul>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

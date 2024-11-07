@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicial</title>
+    <!-- Importação da fonte do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Usando uma fonte mais moderna */
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Barra de navegação */
+        header {
+            background-color: #8FBB99; /* Cor igual à do código anterior */
+            display: flex;
+            justify-content: space-between; /* Alinha logo e links */
+            align-items: center;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            position: absolute;
+            left: 20px; /* Logo à esquerda */
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end; /* Alinha os links à direita */
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #9bc4a5;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para a tela inicial (seção hero) */
+        .hero {
+            background-image: url('background.jpg'); /* Imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Preenche toda a altura da tela */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: black;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero button {
+            background-color: #8FBB99;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #6f9e7b;
+            transform: scale(1.05);
+        }
+
+        /* Seção sobre o projeto */
+        .about-section {
+            padding: 50px 30px;
+            background-color: #ffffff;
+            color: #2c3e50;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin: 50px auto;
+            max-width: 1000px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+            background-color: #f1f1f1;
+        }
+
+        .about-section h2 {
+            font-size: 2.8em;
+            color: #8FBB99;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.3em;
+            color: #555;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .about-section ul li {
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .about-section ul li::before {
+            content: "✔️";
+            color: #1abc9c;
+            margin-right: 10px;
+        }
+
+        /* Seção de Feedbacks e Motivação */
+        .feedback-section {
+            background-color: #8FBB99;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+
+        .feedback-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .feedback-section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .feedback-section button {
+            background-color: #ffffff;
+            color: #8FBB99;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .feedback-section button:hover {
+            background-color: #6f9e7b;
+            transform: scale(1.05);
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .hero h1 {
+                font-size: 3.2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .about-section {
+                padding: 40px 20px;
+            }
+
+            .feedback-section {
+                padding: 30px 15px;
+            }
+
+            .logo {
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+
+            .about-section h2 {
+                font-size: 2.2em;
+            }
+
+            .about-section p {
+                font-size: 1.1em;
+            }
+
+            .feedback-section h2 {
+                font-size: 2.2em;
+            }
+        }
+
+        /* Para telas menores que 500px */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .feedback-section button {
+                font-size: 1em;
+                padding: 12px 24px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+
+            .about-section h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegação -->
+    <header>
+        <div class="logo" aria-label="Logo do site">
+            <img src="logo.png" alt="Logo do projeto" />
+        </div>
+        <div class="navbar">
+            <nav>
+                <a href="TelaInicial.html" aria-label="Página inicial">Inicial</a>
+                <a href="Cardapio.html" aria-label="Cardápio">Cardápio</a>
+                <a href="Diquinhas.html" aria-label="Dicas de alimentação">Diquinhas</a>
+                <a href="SobreNos.html" aria-label="Sobre nós">Sobre Nós</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Hero (Tela inicial impactante) -->
+    <section class="hero">
+        <div>
+            <h1>Cardápio Salvettinho!</h1>
+            <p>Oferecemos o cardápio semanal e dicas para uma alimentação saudável e equilibrada. Explore e conheça mais o nosso site!</p>
+            <button onclick="window.location.href='Cardapio.html'">Conheça agora</button>
+        </div>
+    </section>
+
+    <!-- Seção sobre o projeto -->
+    <main>
+        <section class="about-section" aria-labelledby="cardapio">
+            <h2 id="cardapio">Sobre nosso projeto</h2>
+            <p>O cardápio escolar foi planejado para promover a alimentação saudável entre os alunos, oferecendo refeições equilibradas e nutritivas...</p><br>
+            <ul>
+                <li><strong>Melhora a saúde:</strong> Promove uma alimentação equilibrada...</li>
+                <li><strong>Aumenta a concentração:</strong> Alimentação balanceada ajuda...</li>
+                <li><strong>Educação alimentar:</strong> Incentivamos os alunos...</li>
+            </ul>
+        </section>
+
+        <!-- Seção de Feedbacks e Motivação -->
+        <section class="feedback-section">
+            <h2>Ajude-nos a melhorar!</h2>
+            <p>Seu feedback é muito importante para nós. Se você tem sugestões, ideias ou críticas construtivas, entre em contato conosco...</p>
+            <button onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeSMqTrIJMvp2W91ShzwCzAM_1XhPK78YVetYe0eApqiwq4mg/viewform?vc=0&c=0&w=1&flr=0'">Deixe seu Feedback</button>
+        </section>
+    </main>
+
+</body>
+</html>
+
+
+
+
+
+
+

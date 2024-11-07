@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diquinhas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background-color: #8FBB99;
+            display: flex;
+            justify-content: center; /* Centraliza os links de navegação */
+            align-items: center;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .logo {
+            position: absolute;
+            left: 40px; /* Mantém a logo à esquerda */
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center; /* Centraliza os links dentro do contêiner */
+            gap: 25px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #9bc4a5;
+            transform: translateY(-5px); /* Efeito de leve elevação */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 251, 4, 0.264);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Efeito hover no container */
+        main:hover {
+            background-color: white; /* Cor de fundo ao passar o mouse */
+            transform: scale(1.02); /* Pequeno aumento de tamanho ao passar o mouse */
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: black;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Dicas */
+        section.tip {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        section.tip:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 251, 4, 0.264);
+        }
+
+        section.tip h3 {
+            font-size: 1.6em;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        section.tip p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .logo {
+                position: relative;
+                margin-bottom: 20px;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            h1 {
+                font-size: 2.4em;
+            }
+
+            section.tip {
+                padding: 15px;
+                font-size: 1em;
+            }
+
+            section.tip h3 {
+                font-size: 1.4em;
+            }
+
+            section.tip p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            section.tip {
+                padding: 10px;
+            }
+
+            section.tip h3 {
+                font-size: 1.2em;
+            }
+
+            section.tip p {
+                font-size: 0.9em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo" aria-label="Logo do site">
+            <img src="logo.png" alt="Logo do projeto" />
+        </div>
+        <nav role="navigation">
+            <a href="TelaInicial.html" aria-label="Página inicial">Inicial</a>
+            <a href="Cardapio.html" aria-label="Cardápio">Cardápio</a>
+            <a href="Diquinhas.html" aria-label="Dicas de alimentação">Diquinhas</a>
+            <a href="SobreNos.html" aria-label="Sobre nós">Sobre Nós</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Dicas de Alimentação Saudável</h1>
+
+        <section class="tip" aria-labelledby="tip1">
+            <h3 id="tip1">1. Inclua mais frutas e vegetais</h3>
+            <p>Procure consumir uma variedade de frutas e vegetais todos os dias. Eles são ricos em nutrientes e fibras e ajudam na digestão, além de manter a pele e o corpo mais saudáveis.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip2">
+            <h3 id="tip2">2. Prefira alimentos integrais</h3>
+            <p>Troque alimentos refinados, como pão branco, arroz branco e massas por suas versões integrais. Os grãos integrais são mais ricos em fibras e ajudam a controlar os níveis de açúcar no sangue.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip3">
+            <h3 id="tip3">3. Coma fontes de proteínas magras</h3>
+            <p>Inclua fontes de proteínas como peixe, frango, ovos, leguminosas (feijão, lentilha) e tofu. Elas ajudam na construção muscular e no funcionamento adequado do organismo.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip4">
+            <h3 id="tip4">4. Evite alimentos processados e ultraprocessados</h3>
+            <p>Alimentos como fast food, refrigerantes, snacks industrializados e produtos com muitos conservantes devem ser evitados, pois geralmente têm alto teor de sódio, açúcares e gorduras não saudáveis.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip5">
+            <h3 id="tip5">5. Beba muita água</h3>
+            <p>A hidratação é fundamental para o bom funcionamento do corpo. Tente beber pelo menos 2 litros de água por dia.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip6">
+            <h3 id="tip6">6. Cuidado com o açúcar</h3>
+            <p>Reduza a ingestão de alimentos e bebidas com alto teor de açúcar, como refrigerantes, doces e bolos. O açúcar em excesso pode causar picos de glicemia e contribuir para o ganho de peso.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip7">
+            <h3 id="tip7">7. Prefira gorduras saudáveis</h3>
+            <p>Consuma gorduras boas, como as encontradas no abacate, azeite de oliva, nozes, sementes e peixes como salmão. Elas são essenciais para o funcionamento do cérebro e do coração.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip8">
+            <h3 id="tip8">8. Coma de forma equilibrada e consciente</h3>
+            <p>Procure não comer por impulso. Tente fazer refeições equilibradas, com uma boa combinação de carboidratos, proteínas e gorduras saudáveis.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip9">
+            <h3 id="tip9">9. Reduza o sal</h3>
+            <p>O excesso de sódio está relacionado a problemas de pressão alta. Use ervas e temperos naturais para dar sabor aos alimentos em vez de sal.</p>
+        </section>
+
+        <section class="tip" aria-labelledby="tip10">
+            <h3 id="tip10">10. Evite pular refeições</h3>
+            <p>Comer de forma regular mantém seu metabolismo ativo e evita o consumo excessivo de alimentos em uma única refeição.</p>
+        </section>
+    </main>
+
+    <script>
+        // Adiciona uma interação nas dicas para exibir o conteúdo em um alert
+        const tips = document.querySelectorAll('.tip');
+        tips.forEach(tip => {
+            tip.addEventListener('click', () => {
+                alert('Dica: ' + tip.textContent.trim());
+            });
+        });
+    </script>
+
+</body>
+</html>
